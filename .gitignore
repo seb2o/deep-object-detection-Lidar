@@ -1,5 +1,5 @@
 *.jpeg
-/src/Tuning_exp0/
-/src/Tuning_exp_1/
+
 /NAPLab-LiDAR/
 /runs/
+/src/yolov8s.pt
