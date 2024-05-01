@@ -51,8 +51,8 @@ def generate_target(file):
 class NAPLabLoader(torch.utils.data.Dataset):
     def __init__(self, path, transform=None):
         self.path = path
-        self.img_path = os.path.join(path, "images")
-        self.label_path = os.path.join(path, "labels")
+        self.img_path = os.path.join(split_path, "images", path)
+        self.label_path = os.path.join(split_path, "labels", path)
         self.imgs = list(sorted(os.listdir(self.img_path)))
         self.labels = list(sorted(os.listdir(self.label_path)))
         self.transform = transform
@@ -87,8 +87,8 @@ def collate_fn(batch):
     return tuple(zip(*batch))
 
 
-train_dataset = NAPLabLoader(os.path.join(split_path, "train"))
-validation_dataset = NAPLabLoader(os.path.join(split_path, "val"))
+train_dataset = NAPLabLoader("train")
+validation_dataset = NAPLabLoader("val")
 
 data_loader = torch.utils.data.DataLoader(train_dataset, batch_size=4, collate_fn=collate_fn)
 test_data_loader = torch.utils.data.DataLoader(validation_dataset, batch_size=2, collate_fn=collate_fn)
