@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 
 
-def main():
+def main(project_name: str) -> None:
     model_tuned = YOLO("yolov8s.pt")
     model_tuned.to("cuda")
     model_tuned.train(
@@ -14,7 +14,7 @@ def main():
         save_period=10,
         cache='ram',
         device=0,
-        project='tuned_exp_2',
+        project=project_name,
         pretrained=False,
         deterministic=False,
         plots=True,
@@ -27,4 +27,6 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    print("enter run name : ")
+    n = input()
+    main(n)
