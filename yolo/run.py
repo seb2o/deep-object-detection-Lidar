@@ -1,8 +1,6 @@
 import time
 
-import matplotlib.pyplot as plt
 from ultralytics import YOLO
-import pickle
 import winsound
 
 
@@ -11,11 +9,11 @@ def main(project_name: str) -> None:
     model_tuned.to("cuda")
     model_tuned.train(
         data='../NAPLab-LiDAR/data.yaml',
-        epochs=300,
+        epochs=20,
         patience=20,
         batch=4,
-        imgsz=1024,
-        rect=True,
+        imgsz=640,
+        rect=False,
         save_period=10,
         cache='ram',
         device=0,
@@ -24,11 +22,11 @@ def main(project_name: str) -> None:
         plots=True,
         hsv_h=0,
         mosaic=False,
-        copy_paste=0.5,
-        mixup=0.2,
-        flipud=0.25,
-        shear=0.1,
-        degrees=10
+        copy_paste=0,
+        mixup=0,
+        flipud=0,
+        shear=0,
+        degrees=0
     )
     model_tuned_metrics = model_tuned.val(data="../NAPLab-LiDAR/test.yaml")
     print(model_tuned_metrics)
