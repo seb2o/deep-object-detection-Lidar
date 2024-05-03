@@ -5,3 +5,4 @@
 /yolo/*
 !/yolo/*.py
 !/yolo/*.ipynb
+!/yolo/*.yaml
