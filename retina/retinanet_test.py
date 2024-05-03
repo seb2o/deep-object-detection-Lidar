@@ -27,7 +27,7 @@ print(f"classes: {num_classes}"
       f" weight_decay: {weight_decay}")
 ####################################################################################
 
-file_location = "../../NAPLab-LiDAR"
+file_location = "../NAPLab-LiDAR"
 image_path = os.path.join(file_location, "images")
 old_label_path = os.path.join(file_location, "old_labels")
 new_label_path = os.path.join(file_location, "new_labels")
@@ -125,7 +125,7 @@ def collate_fn(batch):
 
 
 train_dataset = NAPLabLoader("train")
-validation_dataset = NAPLabLoader("val")
+validation_dataset = NAPLabLoader("test")
 
 data_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, collate_fn=collate_fn, shuffle=True)
 test_data_loader = torch.utils.data.DataLoader(validation_dataset, batch_size=2, collate_fn=collate_fn)

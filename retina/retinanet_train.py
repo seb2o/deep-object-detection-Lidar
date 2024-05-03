@@ -22,7 +22,7 @@ momentum = 0.4
 weight_decay = 0.0007
 prediction_confidence = 0.25
 ##########################################
-file_location = "../../NAPLab-LiDAR"
+file_location = "../NAPLab-LiDAR"
 image_path = os.path.join(file_location, "images")
 old_label_path = os.path.join(file_location, "old_labels")
 new_label_path = os.path.join(file_location, "new_labels")
