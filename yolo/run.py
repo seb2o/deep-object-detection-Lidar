@@ -1,32 +1,45 @@
+import time
 from ultralytics import YOLO
+import winsound
 
 
 def main(project_name: str) -> None:
+
     model_tuned = YOLO("yolov8s.pt")
     model_tuned.to("cuda")
+
     model_tuned.train(
         data='../NAPLab-LiDAR/data.yaml',
-        time=.1,
-        patience=3,
+        epochs=300,
+        patience=25,
         batch=-1,
         imgsz=1024,
-        rect=True,
-        save_period=10,
+        pretrained=False,
+        rect=False,
+        save_period=20,
         cache='ram',
         device=0,
         project=project_name,
-        pretrained=False,
         deterministic=False,
         plots=True,
         hsv_h=0,
         mosaic=False,
-        copy_paste=0.5
+        copy_paste=0.5,
+        mixup=0.2,
+        flipud=0.25,
+        shear=0.1,
+        degrees=10
     )
-    model_tuned_metrics = model_tuned.val(data="../NAPLab-LiDAR/test.yaml")
-    print(model_tuned_metrics)
 
 
 if __name__ == '__main__':
     print("enter run name : ")
     n = input()
-    main(n)
+    try:
+        main(n)
+    finally:
+        for _ in range(20):
+            winsound.Beep(4000, 500)
+            time.sleep(.15)
+
+
