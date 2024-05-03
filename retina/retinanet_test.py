@@ -19,8 +19,12 @@ lr = 0.0020
 momentum = 0.4
 weight_decay = 0.0007
 prediction_confidence = 0.25
-print(f"classes: {num_classes} batch_size: {batch_size} epochs: {
-      num_epochs} lr: {lr} momentum: {momentum} weight_decay: {weight_decay}")
+print(f"classes: {num_classes}"
+      f" batch_size: {batch_size}"
+      f" epochs: {num_epochs}"
+      f" lr: {lr}"
+      f" momentum: {momentum}"
+      f" weight_decay: {weight_decay}")
 ####################################################################################
 
 file_location = "../../NAPLab-LiDAR"
