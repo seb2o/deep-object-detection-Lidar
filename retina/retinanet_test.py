@@ -121,7 +121,7 @@ def collate_fn(batch):
 
 
 train_dataset = NAPLabLoader("train")
-validation_dataset = NAPLabLoader("val")
+validation_dataset = NAPLabLoader("test")
 
 data_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, collate_fn=collate_fn, shuffle=True)
 test_data_loader = torch.utils.data.DataLoader(validation_dataset, batch_size=2, collate_fn=collate_fn)
