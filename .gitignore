@@ -5,3 +5,5 @@
 /yolo/*
 !/yolo/*.py
 !/yolo/*.ipynb
+!/yolo/*.yaml
+!/NAPLab-LiDAR/mergedDataset.mp4

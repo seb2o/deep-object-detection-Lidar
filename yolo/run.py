@@ -9,7 +9,7 @@ def main(project_name: str) -> None:
     model_tuned.to("cuda")
 
     model_tuned.train(
-        data='../NAPLab-LiDAR/data.yaml',
+        data='data.yaml',
         epochs=300,
         patience=25,
         batch=-1,
