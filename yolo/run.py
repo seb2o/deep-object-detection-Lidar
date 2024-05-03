@@ -5,7 +5,7 @@ import winsound
 
 def main(project_name: str) -> None:
 
-    model_tuned = YOLO("yolov8s.pt")
+    model_tuned = YOLO("yolov8s.yaml")
     model_tuned.to("cuda")
 
     model_tuned.train(
@@ -14,6 +14,7 @@ def main(project_name: str) -> None:
         patience=25,
         batch=-1,
         imgsz=1024,
+        pretrained=False,
         rect=False,
         save_period=20,
         cache='ram',
@@ -22,7 +23,7 @@ def main(project_name: str) -> None:
         deterministic=False,
         plots=True,
         hsv_h=0,
-        mosaic=True,
+        mosaic=False,
         copy_paste=0.5,
         mixup=0.2,
         flipud=0.25,
