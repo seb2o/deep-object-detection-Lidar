@@ -5,7 +5,7 @@ import winsound
 
 def main(project_name: str) -> None:
 
-    model_tuned = YOLO("yolov8s.yaml")
+    model_tuned = YOLO("yolov8s.pt")
     model_tuned.to("cuda")
 
     model_tuned.train(
