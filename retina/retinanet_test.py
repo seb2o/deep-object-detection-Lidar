@@ -23,7 +23,7 @@ print(f"classes: {num_classes} batch_size: {batch_size} epochs: {
       num_epochs} lr: {lr} momentum: {momentum} weight_decay: {weight_decay}")
 ####################################################################################
 
-file_location = "../../NAPLab-LiDAR"
+file_location = "../NAPLab-LiDAR"
 image_path = os.path.join(file_location, "images")
 old_label_path = os.path.join(file_location, "old_labels")
 new_label_path = os.path.join(file_location, "new_labels")
